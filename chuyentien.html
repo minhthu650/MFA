@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chuyển tiền trong nước</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+    }
+  </style>
+</head>
+<body class="min-h-screen px-4 py-6 text-white">
+
+  <!-- Tiêu đề -->
+  <div class="flex items-center gap-3 text-lg font-semibold mb-4">
+    <a href="dashboard.php" class="text-2xl font-bold">←</a>
+    <span>Chuyển tiền trong nước</span>
+  </div>
+
+  <!-- Tài khoản nguồn -->
+  <div class="bg-[#1f2e3c] rounded-xl p-4 mb-6">
+    <div class="text-sm opacity-70 mb-1">Tài khoản nguồn</div>
+    <div class="flex justify-between items-center">
+      <span class="bg-lime-300 text-black px-2 py-1 rounded font-bold text-sm">1045128924</span>
+      <span class="text-2xl font-bold">121,675 <span class="text-sm">VND</span></span>
+    </div>
+  </div>
+
+  <!-- Thông tin người nhận -->
+  <h3 class="text-base font-semibold mb-2">Thông tin người nhận</h3>
+
+  <label class="text-sm opacity-80">Ngân hàng nhận</label>
+  <select id="nganhang" class="w-full p-3 mt-1 mb-4 rounded-lg bg-[#1a2a35] text-white">
+    <option>Chọn ngân hàng nhận</option>
+    <option>TPBANK</option>
+    <option>VIETCOMBANK</option>
+  </select>
+
+  <label class="text-sm opacity-80">Tài khoản/thẻ nhận</label>
+  <input id="stk" type="text" placeholder="Nhập số tài khoản hoặc thẻ"
+         class="w-full p-3 mt-1 mb-6 rounded-lg bg-[#1a2a35] text-white placeholder-gray-400" />
+
+  <!-- Thông tin giao dịch -->
+  <h3 class="text-base font-semibold mb-2">Thông tin giao dịch</h3>
+
+  <label class="text-sm opacity-80">Số tiền</label>
+  <div class="flex items-center gap-2 mt-1 mb-4">
+    <input id="sotien" type="number" placeholder="Nhập số tiền"
+           class="flex-1 p-3 rounded-lg bg-[#1a2a35] text-white placeholder-gray-400" />
+    <span>VND</span>
+  </div>
+
+  <label class="text-sm opacity-80">Nội dung</label>
+  <input id="noidung" type="text" value="NGUYEN MINH THU chuyen tien"
+         class="w-full p-3 mt-1 mb-4 rounded-lg bg-[#1a2a35] text-white" />
+
+  <label class="text-sm opacity-80">Phân loại giao dịch</label>
+  <select id="phanloai" class="w-full p-3 mt-1 mb-10 rounded-lg bg-[#1a2a35] text-white">
+    <option>Chọn giao dịch theo mục đích</option>
+    <option>Thanh toán</option>
+    <option>Gửi tặng</option>
+  </select>
+
+  <!-- Nút Tiếp tục -->
+  <button onclick="submitForm()"
+          class="w-full py-3 rounded-full bg-gradient-to-r from-lime-300 to-green-400 text-black font-semibold text-lg shadow-md hover:opacity-90 transition">
+    Tiếp tục
+  </button>
+
+  <script>
+    function submitForm() {
+      const stk = document.getElementById("stk").value;
+      const sotien = document.getElementById("sotien").value;
+      const noidung = document.getElementById("noidung").value;
+      const phanloai = document.getElementById("phanloai").value;
+      const nganhang = document.getElementById("nganhang").value;
+
+      if (!stk || !sotien || !nganhang || phanloai.includes("Chọn")) {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+      }
+
+      localStorage.setItem("stk", stk);
+      localStorage.setItem("sotien", sotien);
+      localStorage.setItem("noidung", noidung);
+      localStorage.setItem("phanloai", phanloai);
+      localStorage.setItem("nganhang", nganhang);
+
+      window.location.href = "giaodich.html";
+    }
+  </script>
+
+</body>
+</html>
